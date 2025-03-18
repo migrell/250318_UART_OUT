@@ -1,4 +1,4 @@
-module uart_test(
+module uart_test( //테스트
     input clk,          // 시스템 클럭 (100MHz)
     input reset_n,      // 활성 Low 리셋
     input user_btn,     // 사용자 버튼 입력
