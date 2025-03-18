@@ -368,43 +368,59 @@ module uart_rx (
     //next
     always @(*) begin
         next = state;
+        tick_count_next = tick_count_reg;  // 초기화
+        bit_count_next = bit_count_reg;
         case (state)
             IDLE: begin
+
+                tick_count_next = 0;
+                bit_count_next  = 0;
+
                 if (rx == 0) begin
                     next = START;
+
                 end
             end
 
 
             START: begin
+
                 if (tick_count_reg == 7) begin
                     next = DATA;
 
+                end else begin
+                    tick_count_next = tick_count_reg + 1;
                 end
-            end
+            end  //8회 반복
 
 
             DATA: begin
+
                 if (tick_count_reg == 15) begin
                     if (bit_count_reg == 7) begin
                         next = STOP;
-                    end
+                    end else begin
+                        next = DATA;
+                        bit_count_next =bit_count_reg +1;
+                    end 
 
+                end else begin
+                    tick_count_next = tick_count_reg + 1;
                 end
             end
 
-            STOP:
-            if (tick_count_reg == 7) begin
-                next = IDLE;
+            STOP: begin
+
+                if (tick_count_reg == 7) begin
+                    next = IDLE;
+                end else begin
+                    tick_count_next = tick_count_reg + 1;
+                end
+
             end
 
         endcase
     end
-
-
-
-
-
 endmodule
 
 
