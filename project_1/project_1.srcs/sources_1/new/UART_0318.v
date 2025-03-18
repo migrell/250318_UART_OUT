@@ -397,6 +397,7 @@ module uart_rx (
             DATA: begin
 
                 if (tick_count_reg == 15) begin
+                    rx_data_next[bit_count_reg] = rx;
                     if (bit_count_reg == 7) begin
                         next = STOP;
                         tick_count_next = 0; //다음 state로 갈때 tick count 초기화 
