@@ -323,13 +323,15 @@ module baud_tick_gen (
     end
 endmodule
 
-module moduleName (
+module uart_rx (
     input clk,
     input rst,
     input tick,
     input rx,
     output rx_done,
-    output[7:0]
+    output[7:0] rx_data
 );
 
 endmodule
+
+    parameter IDLE =0, START = 1, DATA =2 STOP = 3;
