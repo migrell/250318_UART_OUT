@@ -21,9 +21,6 @@ module tb_uart ();
         .rx_data(rx_data)
     );
     
-    
-
-       
     // 수정된 모듈 인스턴스화 - 올바른 포트 이름 사용
     // send_tx_btn dut (
     //     .clk(clk),                     // 클록 연결
@@ -32,15 +29,17 @@ module tb_uart ();
     //     .tx(tx_out),                   // 송신 출력 연결
     //     .tx_done(tx_done)              // 송신 완료 신호 연결
     // );
-
-
-
+    
     always #5 clk = ~clk;
     
     initial begin
         clk = 0;
         rst = 1;
-/*
+        rx = 1;
+        #100
+        rx = 0;
+        #104160;
+        /*
         btn_start = 0;
         data_in = "0";
         #10;
@@ -51,15 +50,13 @@ module tb_uart ();
         //@(tx_done);
         //wait(tx_done == 0);   // 전송 안될 때기
         btn_start = 0;
-*/
-    
-    //  신호 모니터링
-    // always @(posedge clk) begin
-    //     if (!rst) begin
-    //         $display("Time=%0t, TX=%b, Done=%b", $time, tx_out, tx_done);
-    //     end
-    // end
+        */
+        
+        //  신호 모니터링
+        // always @(posedge clk) begin
+        //     if (!rst) begin
+        //         $display("Time=%0t, TX=%b, Done=%b", $time, tx_out, tx_done);
+        //     end
+        // end
     end
 endmodule
-
- 
