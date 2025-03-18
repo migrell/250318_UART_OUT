@@ -17,9 +17,11 @@ module simple_fnd_controller (
         if (reset) begin
             display_data_reg <= 8'h30; // 기본값 '0'
         end else if (rx_done) begin
-            display_data_reg <= rx_data; // 수신 데이터 저장
+            display_data_reg <= rx_data; // 수신 데이터 저장 
         end
     end
+    // single clock 처리 -> 현재상태가지고 처리함 
+        
 
     // 표시할 BCD 데이터 변환
     reg [3:0] display_bcd;
