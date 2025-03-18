@@ -17,43 +17,43 @@ module uart (
     wire w_tick;
 
 
-        uart U_UART_TX (
-        .clk(clk),
-        .rst(rst),
-        .btn_start(send_reg),
-        .tx_data_in(send_tx_data_reg),
-        .tx_done(w_tx_done),
-        .tx(tx)
-    );
+    //     uart U_UART_TX (
+    //     .clk(clk),
+    //     .rst(rst),
+    //     .btn_start(send_reg),
+    //     .tx_data_in(send_tx_data_reg),
+    //     .tx_done(w_tx_done),
+    //     .tx(tx)
+    // );
 
 
-    uart_rx U_UART_RX (
-        .clk(clk),
-        .rst(rst),
-        .tick(w_tick),
-        .rx(rx),
-        .rx_done(rx_done),
-        .rx_data(rx_data)
+    // uart_rx U_UART_RX (
+    //     .clk(clk),
+    //     .rst(rst),
+    //     .tick(w_tick),
+    //     .rx(rx),
+    //     .rx_done(rx_done),
+    //     .rx_data(rx_data)
 
-    );
+    // );
 
-    // 보드레이트 생성기 모듈
-    baud_tick_gen U_BAUD_Tick_Gen (
-        .clk(clk),
-        .rst(rst),
-        .baud_tick(w_tick)
-    );
+    // // 보드레이트 생성기 모듈
+    // baud_tick_gen U_BAUD_Tick_Gen (
+    //     .clk(clk),
+    //     .rst(rst),
+    //     .baud_tick(w_tick)
+    // );
 
-    // 비트 카운터 모듈
-    bit_counter U_BIT_COUNTER (
-        .clk(clk),
-        .rst(rst),
-        .start(w_start),
-        .tick(w_tick),
-        .bit_position(bit_position),
-        .active(active),
-        .done(done)
-    );
+    // // 비트 카운터 모듈
+    // bit_counter U_BIT_COUNTER (
+    //     .clk(clk),
+    //     .rst(rst),
+    //     .start(w_start),
+    //     .tick(w_tick),
+    //     .bit_position(bit_position),
+    //     .active(active),
+    //     .done(done)
+    // );
 
 
 
@@ -490,16 +490,47 @@ module TOP_UART (
     wire w_tick;
 
 
+       // 보드레이트 생성기
+    baud_tick_gen U_BAUD_TICK (
+        .clk(clk),
+        .rst(rst),
+        .baud_tick(w_tick)
+    );
+    
+    // UART 수신기
+    uart_rx U_UART_RX (
+        .clk(clk),
+        .rst(rst),
+        .tick(w_tick),
+        .rx(rx),
+        .rx_done(w_rx_done),
+        .rx_data(w_rx_data)
+    );
+    
+    // UART 송신기 - 이 모듈만 tx 신호를 구동하도록 합니다
+    uart_tx U_UART_TX (
+        .clk(clk),
+        .rst(rst),
+        .tick(w_tick),
+        .start_trigger(w_rx_done),
+        .data_in(w_rx_data),
+        .o_tx_done(),
+        .o_tx(tx),
+        .state_out()
 
-    // // 시프트 레지스터 기반 버튼 디바운싱 모듈 사용
-    // btn_debounce U_Start_btn (
-    //     .clk  (clk),
-    //     .reset(rst),
-    //     .i_btn(btn_start),
-    //     .o_btn(w_start)
-    // );
+    );
 
-    // UART 송신 모듈
+    
+    // 비트 카운터 모듈
+    bit_counter U_BIT_COUNTER (
+        .clk(clk),
+        .rst(rst),
+        .start(w_start),
+        .tick(w_tick),
+        .bit_position(bit_position),
+        .active(active),
+        .done(done)
+    );
 
 
     uart U_UART (
