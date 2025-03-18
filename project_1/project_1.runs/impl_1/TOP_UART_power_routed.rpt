@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date             : Tue Mar 18 15:49:11 2025
+| Date             : Tue Mar 18 15:51:55 2025
 | Host             : DESKTOP-7CFQ9ND running 64-bit major release  (build 9200)
 | Command          : report_power -file TOP_UART_power_routed.rpt -pb TOP_UART_power_summary_routed.pb -rpx TOP_UART_power_routed.rpx
 | Design           : TOP_UART
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.074        |
+| Total On-Chip Power (W)  | 0.073        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
 | Dynamic (W)              | 0.002        |
@@ -53,14 +53,14 @@ Table of Contents
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
 | Clocks         |    <0.001 |        3 |       --- |             --- |
-| Slice Logic    |    <0.001 |      140 |       --- |             --- |
-|   LUT as Logic |    <0.001 |       66 |     20800 |            0.32 |
-|   Register     |    <0.001 |       51 |     41600 |            0.12 |
+| Slice Logic    |    <0.001 |      155 |       --- |             --- |
+|   LUT as Logic |    <0.001 |       68 |     20800 |            0.33 |
+|   Register     |    <0.001 |       62 |     41600 |            0.15 |
 |   Others       |     0.000 |        6 |       --- |             --- |
-| Signals        |    <0.001 |      102 |       --- |             --- |
+| Signals        |    <0.001 |      115 |       --- |             --- |
 | I/O            |    <0.001 |        4 |       106 |            3.77 |
 | Static Power   |     0.072 |          |           |                 |
-| Total          |     0.074 |          |           |                 |
+| Total          |     0.073 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 

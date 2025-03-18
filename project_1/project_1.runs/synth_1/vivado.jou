@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Tue Mar 18 15:48:08 2025
-# Process ID: 19296
+# Start of session at: Tue Mar 18 15:50:48 2025
+# Process ID: 11988
 # Current directory: C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.runs/synth_1
 # Command line: vivado.exe -log TOP_UART.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source TOP_UART.tcl
 # Log file: C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.runs/synth_1/TOP_UART.vds

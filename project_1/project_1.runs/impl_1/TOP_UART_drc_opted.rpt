@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Tue Mar 18 15:48:56 2025
+| Date         : Tue Mar 18 15:51:37 2025
 | Host         : DESKTOP-7CFQ9ND running 64-bit major release  (build 9200)
 | Command      : report_drc -file TOP_UART_drc_opted.rpt -pb TOP_UART_drc_opted.pb -rpx TOP_UART_drc_opted.rpx
 | Design       : TOP_UART

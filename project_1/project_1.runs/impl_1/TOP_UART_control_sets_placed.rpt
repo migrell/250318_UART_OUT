@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Tue Mar 18 15:48:58 2025
+| Date         : Tue Mar 18 15:51:40 2025
 | Host         : DESKTOP-7CFQ9ND running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file TOP_UART_control_sets_placed.rpt
 | Design       : TOP_UART
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    12 |
-|    Minimum number of control sets                        |    12 |
+| Total control sets                                       |    13 |
+|    Minimum number of control sets                        |    13 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    77 |
+| Unused register locations in slices containing registers |    74 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,11 +39,11 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    12 |
+| Total control sets |    13 |
 | >= 0 to < 4        |     9 |
 | >= 4 to < 6        |     2 |
 | >= 6 to < 8        |     0 |
-| >= 8 to < 10       |     0 |
+| >= 8 to < 10       |     1 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
@@ -59,10 +59,10 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               8 |            8 |
-| No           | No                    | Yes                    |              33 |           14 |
+| No           | No                    | Yes                    |              36 |           12 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |              10 |            5 |
+| Yes          | No                    | Yes                    |              18 |            5 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
@@ -73,18 +73,19 @@ Table of Contents
 +--------------------------------------+----------------------------------+------------------+------------------+----------------+--------------+
 |             Clock Signal             |           Enable Signal          | Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
 +--------------------------------------+----------------------------------+------------------+------------------+----------------+--------------+
-|  U_UART/U_UART_RX/rx_data_next__0[0] |                                  |                  |                1 |              1 |         1.00 |
-|  U_UART/U_UART_RX/rx_data_next__0[4] |                                  |                  |                1 |              1 |         1.00 |
-|  U_UART/U_UART_RX/rx_data_next__0[3] |                                  |                  |                1 |              1 |         1.00 |
-|  U_UART/U_UART_RX/rx_data_next__0[2] |                                  |                  |                1 |              1 |         1.00 |
-|  U_UART/U_UART_RX/rx_data_next__0[6] |                                  |                  |                1 |              1 |         1.00 |
-|  U_UART/U_UART_RX/rx_data_next__0[7] |                                  |                  |                1 |              1 |         1.00 |
 |  U_UART/U_UART_RX/rx_data_next__0[5] |                                  |                  |                1 |              1 |         1.00 |
+|  U_UART/U_UART_RX/rx_data_next__0[7] |                                  |                  |                1 |              1 |         1.00 |
+|  U_UART/U_UART_RX/rx_data_next__0[0] |                                  |                  |                1 |              1 |         1.00 |
 |  U_UART/U_UART_RX/rx_data_next__0[1] |                                  |                  |                1 |              1 |         1.00 |
+|  U_UART/U_UART_RX/rx_data_next__0[2] |                                  |                  |                1 |              1 |         1.00 |
+|  U_UART/U_UART_RX/rx_data_next__0[3] |                                  |                  |                1 |              1 |         1.00 |
+|  U_UART/U_UART_RX/rx_data_next__0[4] |                                  |                  |                1 |              1 |         1.00 |
+|  U_UART/U_UART_RX/rx_data_next__0[6] |                                  |                  |                1 |              1 |         1.00 |
 |  clk_IBUF_BUFG                       | U_UART/U_UART_TX/tx_next         | rst_IBUF         |                1 |              1 |         1.00 |
-|  clk_IBUF_BUFG                       | U_UART/U_UART_TX/tick_count_next | rst_IBUF         |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG                       | U_UART/U_UART_TX/tick_count_next | rst_IBUF         |                1 |              4 |         4.00 |
 |  clk_IBUF_BUFG                       | U_UART/U_UART_RX/tick_count_next | rst_IBUF         |                2 |              5 |         2.50 |
-|  clk_IBUF_BUFG                       |                                  | rst_IBUF         |               14 |             33 |         2.36 |
+|  clk_IBUF_BUFG                       | U_UART/U_UART_RX/E[0]            | rst_IBUF         |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG                       |                                  | rst_IBUF         |               12 |             36 |         3.00 |
 +--------------------------------------+----------------------------------+------------------+------------------+----------------+--------------+
 
 
