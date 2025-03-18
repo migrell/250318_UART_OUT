@@ -7,10 +7,64 @@ module uart (
     input [7:0] tx_data_in,
     output tx_done,
     output tx,
-    output [1:0] state_out
+    output [1:0] state_out,
+
+    input rx, 
+    output rx_done,
+    output [7:0] rx_data
 );
     // --------- 내부 신호 선언 ---------
     wire w_tick;
+
+    
+    // 시프트 레지스터 기반 버튼 디바운싱 모듈 사용
+    btn_debounce U_Start_btn (
+        .clk(clk),
+        .reset(rst),
+        .i_btn(btn_start),
+        .o_btn(w_start)
+    );
+
+    // UART 송신 모듈
+    uart U_UART (
+        .clk(clk),
+        .rst(rst),
+        .btn_start(send_reg),
+        .tx_data_in(send_tx_data_reg),
+        .tx_done(w_tx_done),
+        .tx(tx)
+    );
+
+    // 보드레이트 생성기 모듈
+    baud_tick_gen U_BAUD_Tick_Gen (
+        .clk(clk),
+        .rst(rst),
+        .baud_tick(w_tick)
+    );
+    
+    // 비트 카운터 모듈
+    bit_counter U_BIT_COUNTER (
+        .clk(clk),
+        .rst(rst),
+        .start(w_start),
+        .tick(w_tick),
+        .bit_position(bit_position),
+        .active(active),
+        .done(done)
+    );
+
+    uart_rx U_UART_RX(
+            .clk(clk),
+            .rst(rst),
+            .tick(w_tick),
+            .rx(rx),
+            .rx_done(rx_done),
+            .rx_data(rx_data)
+
+
+
+
+    );
 
     // FSM 상태 정의
     parameter IDLE = 2'b00, START = 2'b01, DATA = 2'b10, STOP = 2'b11;
@@ -338,7 +392,7 @@ module uart_rx (
 
     reg rx_done_reg, rx_done_next;
     reg [2:0] bit_count_reg, bit_count_next;
-    reg [3:0] tick_count_reg, tick_count_next;
+    reg [4:0] tick_count_reg, tick_count_next;
     reg [7:0] rx_data_reg, rx_data_next;
 
     //output
