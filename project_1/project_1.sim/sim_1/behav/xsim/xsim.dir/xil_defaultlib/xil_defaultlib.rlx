@@ -1,0 +1,9 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
+C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sim_1/new/tb3.v,1742201123,verilog,,,,tb_uart_tx,,,,,,,,
+C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/button.v,1742200240,verilog,,C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v,,btn_debounce,,,,,,,,
+C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v,1742262959,verilog,,C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart_1.v,,send_tx_btn,,,,,,,,
+C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart_1.v,1742262732,verilog,,C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sim_1/new/tb3.v,,baud_tick_gen;uart;uart_tx,,,,,,,,

@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Mar 14 16:15:39 2025
+# Process ID: 9652
+# Current directory: D:/250314_UART/project_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13240 D:\250314_UART\project_1\project_1.xpr
+# Log file: D:/250314_UART/project_1/vivado.log
+# Journal file: D:/250314_UART/project_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/250314_UART/project_1/project_1.xpr
+update_compile_order -fileset sources_1

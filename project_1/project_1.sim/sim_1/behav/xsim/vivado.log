@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Mar 18 11:08:03 2025
+# Process ID: 16484
+# Current directory: C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.sim/sim_1/behav/xsim
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent8596 C:\Users\kccistc\Desktop\250318_UARTT\project_1\project_1.sim\sim_1\behav\xsim\tb_uart_tx_behav.wdb
+# Log file: C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.sim/sim_1/behav/xsim/vivado.log
+# Journal file: C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.sim/sim_1/behav/xsim\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_wave_database {C:\Users\kccistc\Desktop\250318_UARTT\project_1\project_1.sim\sim_1\behav\xsim\tb_uart_tx_behav.wdb}
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 18 11:08:20 2025...

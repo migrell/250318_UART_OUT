@@ -1,0 +1,23 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Mar 14 16:15:39 2025
+# Process ID: 9652
+# Current directory: D:/250314_UART/project_1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13240 D:\250314_UART\project_1\project_1.xpr
+# Log file: D:/250314_UART/project_1/vivado.log
+# Journal file: D:/250314_UART/project_1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/250314_UART/project_1/project_1.xpr
+INFO: [Project 1-313] Project file moved from 'D:/250313_UART/project_1' since last save.
+WARNING: [filemgmt 56-2] Default IP Output Path : Could not find the directory 'D:/250314_UART/project_1/project_1.gen/sources_1', nor could it be found using path 'D:/250313_UART/project_1/project_1.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.2/data/ip'.
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Fri Mar 14 16:16:13 2025...
