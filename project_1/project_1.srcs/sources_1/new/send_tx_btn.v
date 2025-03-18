@@ -26,16 +26,18 @@ module send_tx_btn (
     // 내부 신호와 레지스터 선언
     parameter IDLE = 0, LOAD = 1, START = 2, SEND = 3;
     parameter BUFFER_SIZE = 16;  // 16문자 버퍼 크기
+    parameter ASCII_MAX = 127;   // ASCII 코드 최대값
 
     reg [1:0] state, next_state;
     reg [7:0] send_tx_data_reg, send_tx_data_next;
     reg send_reg, send_next;
-    reg [3:0] send_count_reg, send_count_next;
     
     // 버퍼 관련 레지스터 추가
     reg [7:0] char_buffer [0:BUFFER_SIZE-1];  // 16문자 버퍼
     reg [3:0] buffer_index_reg, buffer_index_next;  // 현재 전송할 문자 인덱스
+    reg [6:0] ascii_index_reg, ascii_index_next;    // 현재 ASCII 인덱스 (0-127)
     reg buffer_ready_reg, buffer_ready_next;  // 버퍼 준비 상태
+    reg buffer_update_reg, buffer_update_next; // 버퍼 업데이트 필요 여부
     
     integer i;  // 루프 변수
 
@@ -78,27 +80,50 @@ module send_tx_btn (
     // tx_done 출력 신호 연결
     assign tx_done = w_tx_done;
 
+    // 버퍼 업데이트 함수 - 현재 ASCII 인덱스부터 16문자를 버퍼에 로드
+    task update_buffer;
+        input [6:0] start_index;
+        integer j;
+        begin
+            for (j = 0; j < BUFFER_SIZE; j = j + 1) begin
+                if (start_index + j <= ASCII_MAX) begin
+                    char_buffer[j] <= start_index + j;
+                end else begin
+                    // ASCII 범위를 넘어가면 다시 0부터 시작 (선택 사항)
+                    char_buffer[j] <= start_index + j - ASCII_MAX - 1;
+                end
+            end
+        end
+    endtask
+
     // 상태 레지스터 업데이트 (동기 로직)
     always @(posedge clk, posedge rst) begin
         if (rst) begin
             state <= IDLE;
             send_tx_data_reg <= 8'h30;  // "0" ASCII 코드
             send_reg <= 1'b0;
-            send_count_reg <= 4'b0;
             buffer_index_reg <= 4'b0;
+            ascii_index_reg <= 7'b0;
             buffer_ready_reg <= 1'b0;
+            buffer_update_reg <= 1'b0;
             
-            // 버퍼 초기화
+            // 초기 버퍼 설정 (0-15)
             for (i = 0; i < BUFFER_SIZE; i = i + 1) begin
-                char_buffer[i] <= 8'h30 + i;  // "0"부터 시작하는 문자열 (0,1,2,3...)
+                char_buffer[i] <= i;
             end
         end else begin
             state <= next_state;
             send_tx_data_reg <= send_tx_data_next;
             send_reg <= send_next;
-            send_count_reg <= send_count_next;
             buffer_index_reg <= buffer_index_next;
+            ascii_index_reg <= ascii_index_next;
             buffer_ready_reg <= buffer_ready_next;
+            buffer_update_reg <= buffer_update_next;
+            
+            // 버퍼 업데이트가 필요한 경우
+            if (buffer_update_reg) begin
+                update_buffer(ascii_index_reg);
+            end
         end
     end
 
@@ -108,9 +133,10 @@ module send_tx_btn (
         send_tx_data_next = send_tx_data_reg;
         next_state = state;
         send_next = 1'b0;  // 기본값은 비활성화
-        send_count_next = send_count_reg;
         buffer_index_next = buffer_index_reg;
+        ascii_index_next = ascii_index_reg;
         buffer_ready_next = buffer_ready_reg;
+        buffer_update_next = 1'b0;  // 기본값은 업데이트 없음
         
         case (state)
             IDLE: begin
@@ -120,6 +146,12 @@ module send_tx_btn (
                 if (w_start) begin  // 버튼 입력 감지
                     next_state = LOAD;
                     buffer_ready_next = 1'b1;  // 버퍼 준비 완료
+                    
+                    // 버튼이 눌린 후 첫 전송 시작인 경우, ASCII 인덱스 초기화
+                    if (!buffer_ready_reg) begin
+                        ascii_index_next = 7'b0;
+                        buffer_update_next = 1'b1;  // 버퍼 업데이트 요청
+                    end
                 end
             end
             
@@ -146,9 +178,19 @@ module send_tx_btn (
                 // 송신이 완료되면 다음 문자 처리
                 if (w_tx_done == 1'b1) begin
                     if (buffer_index_reg == BUFFER_SIZE - 1) begin
-                        // 마지막 문자 전송 완료 - 다시 IDLE 상태로
-                        next_state = IDLE;
-                        buffer_ready_next = 1'b0;  // 버퍼 준비 해제
+                        // 현재 버퍼의 마지막 문자 전송 완료
+                        
+                        if (ascii_index_reg + BUFFER_SIZE > ASCII_MAX) begin
+                            // 모든 ASCII 문자 전송 완료 - 다시 IDLE 상태로
+                            next_state = IDLE;
+                            buffer_ready_next = 1'b0;  // 버퍼 준비 해제
+                        end else begin  // 여기서 { 대신 begin으로 수정
+                            // 다음 버퍼로 업데이트
+                            ascii_index_next = ascii_index_reg + BUFFER_SIZE;
+                            buffer_update_next = 1'b1;  // 버퍼 업데이트 요청
+                            buffer_index_next = 4'b0;   // 버퍼 인덱스 리셋
+                            next_state = LOAD;          // 다음 문자 로드
+                        end  // 여기서 } 대신 end로 수정
                     end else begin
                         // 다음 문자 전송 준비
                         buffer_index_next = buffer_index_reg + 1'b1;
