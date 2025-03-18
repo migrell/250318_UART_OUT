@@ -333,7 +333,7 @@ module uart_rx (
 );
 
 
-    parameter IDLE = 0, START = 1, DATA = 2, STOP = 3;
+    localparam IDLE = 0, START = 1, DATA = 2, STOP = 3;
     reg [1:0] state, next;
 
     reg rx_done_reg, rx_done_next;
