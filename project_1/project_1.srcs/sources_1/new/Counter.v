@@ -1,3 +1,4 @@
+// 비트 카운터 모듈
 module bit_counter(
     input clk,
     input rst,
@@ -7,9 +8,8 @@ module bit_counter(
     output reg active,
     output reg done
 );
-
     reg [3:0] count;
-
+    
     always @(posedge clk or posedge rst) begin
         if (rst) begin
             count <= 0;

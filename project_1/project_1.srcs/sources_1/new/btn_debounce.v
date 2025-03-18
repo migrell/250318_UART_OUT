@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+// 버튼 디바운스 모듈
 module btn_debounce(
     input clk,
     input reset,

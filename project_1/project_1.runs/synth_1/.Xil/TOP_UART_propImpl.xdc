@@ -39,16 +39,6 @@ set_property src_info {type:XDC file:1 line:57 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN V4   IOSTANDARD LVCMOS33 } [get_ports {fnd_comm[2]}]
 set_property src_info {type:XDC file:1 line:58 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN W4   IOSTANDARD LVCMOS33 } [get_ports {fnd_comm[3]}]
-set_property src_info {type:XDC file:1 line:61 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN U18   IOSTANDARD LVCMOS33 } [get_ports rst]      # 중앙 버튼 - 시스템 리셋용
-set_property src_info {type:XDC file:1 line:62 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN T18   IOSTANDARD LVCMOS33 } [get_ports btnU]      # 위쪽 버튼 - 표시 모드 변경(예: ASCII/HEX 전환)
-set_property src_info {type:XDC file:1 line:63 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN W19   IOSTANDARD LVCMOS33 } [get_ports btnL]        # 왼쪽 버튼 - 이전 문자 전송(UART TX)
-set_property src_info {type:XDC file:1 line:64 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN T17   IOSTANDARD LVCMOS33 } [get_ports btnR]   # 오른쪽 버튼 - 다음 문자 전송(UART TX)
-set_property src_info {type:XDC file:1 line:65 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN U17   IOSTANDARD LVCMOS33 } [get_ports btnD]   # 아래쪽 버튼 - 특수 명령(예: 화면 클리어)
 set_property src_info {type:XDC file:1 line:68 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN B18  IOSTANDARD LVCMOS33 } [get_ports rx]
 set_property src_info {type:XDC file:1 line:69 export:INPUT save:INPUT read:READ} [current_design]
