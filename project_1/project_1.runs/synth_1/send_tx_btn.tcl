@@ -71,7 +71,10 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 4
+set_param synth.incrementalSynthesisCache C:/Users/kccistc/Desktop/250318_UARTT/project_1/.Xil/Vivado-6672-DESKTOP-7CFQ9ND/incrSyn
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a35tcpg236-1
 
@@ -89,8 +92,9 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/button.v
-  C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart_1.v
+  C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/Counter.v
+  C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/UART.v
+  C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/btn_debounce.v
   C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v
 }
 OPTRACE "Adding files" END { }

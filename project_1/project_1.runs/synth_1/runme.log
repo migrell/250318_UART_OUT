@@ -17,43 +17,48 @@ INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 16464
+INFO: [Synth 8-7075] Helper process launched with PID 17776
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1104.738 ; gain = 0.000
+Starting RTL Elaboration : Time (s): cpu = 00:00:00 ; elapsed = 00:00:03 . Memory (MB): peak = 1107.707 ; gain = 0.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'send_tx_btn' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v:3]
-INFO: [Synth 8-6157] synthesizing module 'btn_debounce' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/button.v:4]
-	Parameter DEBOUNCE_TIME bound to: 5000 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'btn_debounce' (1#1) [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/button.v:4]
-INFO: [Synth 8-6157] synthesizing module 'uart' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart_1.v:3]
-INFO: [Synth 8-6157] synthesizing module 'uart_tx' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart_1.v:35]
+INFO: [Synth 8-6157] synthesizing module 'send_tx_btn' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v:2]
+	Parameter IDLE bound to: 0 - type: integer 
+	Parameter START bound to: 1 - type: integer 
+	Parameter SEND bound to: 2 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'btn_debounce' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/btn_debounce.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'btn_debounce' (1#1) [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/btn_debounce.v:2]
+INFO: [Synth 8-6157] synthesizing module 'uart' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/UART.v:3]
 	Parameter IDLE bound to: 2'b00 
 	Parameter START bound to: 2'b01 
 	Parameter DATA bound to: 2'b10 
 	Parameter STOP bound to: 2'b11 
-INFO: [Synth 8-226] default block is never used [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart_1.v:88]
-INFO: [Synth 8-6155] done synthesizing module 'uart_tx' (2#1) [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart_1.v:35]
-INFO: [Synth 8-6157] synthesizing module 'baud_tick_gen' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart_1.v:162]
 	Parameter BAUD_RATE bound to: 9600 - type: integer 
 	Parameter BAUD_COUNT bound to: 651 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'baud_tick_gen' (3#1) [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart_1.v:162]
-INFO: [Synth 8-6155] done synthesizing module 'uart' (4#1) [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart_1.v:3]
-WARNING: [Synth 8-7071] port 'state_out' of module 'uart' is unconnected for instance 'U_UART' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v:23]
-WARNING: [Synth 8-7023] instance 'U_UART' of module 'uart' has 7 connections declared, but only 6 given [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'send_tx_btn' (5#1) [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v:3]
+INFO: [Synth 8-226] default block is never used [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/UART.v:85]
+INFO: [Synth 8-6155] done synthesizing module 'uart' (2#1) [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/UART.v:3]
+WARNING: [Synth 8-7071] port 'state_out' of module 'uart' is unconnected for instance 'U_UART' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v:29]
+WARNING: [Synth 8-7023] instance 'U_UART' of module 'uart' has 7 connections declared, but only 6 given [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v:29]
+INFO: [Synth 8-6157] synthesizing module 'baud_tick_gen' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/UART.v:286]
+	Parameter BAUD_RATE bound to: 9600 - type: integer 
+	Parameter BAUD_COUNT bound to: 651 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'baud_tick_gen' (3#1) [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/UART.v:286]
+INFO: [Synth 8-6157] synthesizing module 'bit_counter' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/Counter.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'bit_counter' (4#1) [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/Counter.v:1]
+WARNING: [Synth 8-689] width (1) of port connection 'bit_position' does not match port width (4) of module 'bit_counter' [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v:49]
+INFO: [Synth 8-6155] done synthesizing module 'send_tx_btn' (5#1) [C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v:2]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 1104.738 ; gain = 0.000
+Finished RTL Elaboration : Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 1107.707 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 1104.738 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 1107.707 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 1104.738 ; gain = 0.000
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:00 ; elapsed = 00:00:04 . Memory (MB): peak = 1107.707 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1104.738 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1107.707 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -64,28 +69,29 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/send_tx_btn_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1170.875 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1177.051 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1170.875 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1177.051 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1170.875 ; gain = 66.137
+Finished Constraint Validation : Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 1177.051 ; gain = 69.344
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1170.875 ; gain = 66.137
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 1177.051 ; gain = 69.344
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1170.875 ; gain = 66.137
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 1177.051 ; gain = 69.344
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_tx'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'send_tx_btn'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -94,40 +100,47 @@ INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'uart_
                     DATA |                               10 |                               10
                     STOP |                               11 |                               11
 ---------------------------------------------------------------------------------------------------
-INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uart_tx'
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'uart'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              001 |                               00
+                   START |                              010 |                               01
+                    SEND |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'send_tx_btn'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:09 . Memory (MB): peak = 1170.875 ; gain = 66.137
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:01 ; elapsed = 00:00:09 . Memory (MB): peak = 1177.051 ; gain = 69.344
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   13 Bit       Adders := 1     
-	   2 Input   10 Bit       Adders := 1     
+	   2 Input   17 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 2     
 	   2 Input    8 Bit       Adders := 1     
-	   2 Input    7 Bit       Adders := 1     
-	   2 Input    4 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 2     
 	   2 Input    3 Bit       Adders := 1     
 +---Registers : 
-	               13 Bit    Registers := 1     
-	               10 Bit    Registers := 1     
-	                8 Bit    Registers := 1     
-	                7 Bit    Registers := 1     
-	                4 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	               10 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                4 Bit    Registers := 3     
 	                3 Bit    Registers := 1     
-	                1 Bit    Registers := 6     
+	                1 Bit    Registers := 9     
 +---Muxes : 
-	   2 Input   13 Bit        Muxes := 2     
+	   2 Input   17 Bit        Muxes := 1     
 	   2 Input    8 Bit        Muxes := 1     
-	   2 Input    7 Bit        Muxes := 1     
 	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 1     
 	   2 Input    3 Bit        Muxes := 1     
 	   4 Input    3 Bit        Muxes := 1     
 	   4 Input    2 Bit        Muxes := 1     
 	   2 Input    2 Bit        Muxes := 1     
-	   2 Input    1 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 7     
 	   4 Input    1 Bit        Muxes := 6     
+	   3 Input    1 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -144,25 +157,25 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:03 ; elapsed = 00:00:10 . Memory (MB): peak = 1170.875 ; gain = 66.137
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 1177.051 ; gain = 69.344
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 1170.875 ; gain = 66.137
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:02 ; elapsed = 00:00:14 . Memory (MB): peak = 1177.051 ; gain = 69.344
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 1175.980 ; gain = 71.242
+Finished Timing Optimization : Time (s): cpu = 00:00:02 ; elapsed = 00:00:14 . Memory (MB): peak = 1177.051 ; gain = 69.344
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:05 ; elapsed = 00:00:15 . Memory (MB): peak = 1176.758 ; gain = 72.020
+Finished Technology Mapping : Time (s): cpu = 00:00:02 ; elapsed = 00:00:15 . Memory (MB): peak = 1177.449 ; gain = 69.742
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -180,37 +193,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:06 ; elapsed = 00:00:17 . Memory (MB): peak = 1183.547 ; gain = 78.809
+Finished IO Insertion : Time (s): cpu = 00:00:02 ; elapsed = 00:00:17 . Memory (MB): peak = 1184.180 ; gain = 76.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:06 ; elapsed = 00:00:17 . Memory (MB): peak = 1183.547 ; gain = 78.809
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:02 ; elapsed = 00:00:17 . Memory (MB): peak = 1184.180 ; gain = 76.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:06 ; elapsed = 00:00:17 . Memory (MB): peak = 1183.547 ; gain = 78.809
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:02 ; elapsed = 00:00:17 . Memory (MB): peak = 1184.180 ; gain = 76.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:06 ; elapsed = 00:00:17 . Memory (MB): peak = 1183.547 ; gain = 78.809
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:02 ; elapsed = 00:00:17 . Memory (MB): peak = 1184.180 ; gain = 76.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:17 . Memory (MB): peak = 1183.547 ; gain = 78.809
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:02 ; elapsed = 00:00:17 . Memory (MB): peak = 1184.180 ; gain = 76.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:06 ; elapsed = 00:00:17 . Memory (MB): peak = 1183.547 ; gain = 78.809
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:02 ; elapsed = 00:00:17 . Memory (MB): peak = 1184.180 ; gain = 76.473
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -227,37 +240,38 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     1|
-|2     |CARRY4 |     3|
-|3     |LUT2   |    16|
-|4     |LUT3   |     8|
-|5     |LUT4   |    11|
-|6     |LUT5   |    13|
-|7     |LUT6   |    28|
-|8     |FDCE   |    48|
-|9     |FDPE   |     4|
-|10    |IBUF   |     3|
-|11    |OBUF   |     2|
+|2     |CARRY4 |     4|
+|3     |LUT1   |     2|
+|4     |LUT2   |     2|
+|5     |LUT3   |     6|
+|6     |LUT4   |    13|
+|7     |LUT5   |    31|
+|8     |LUT6   |    20|
+|9     |FDCE   |    56|
+|10    |FDPE   |     5|
+|11    |IBUF   |     3|
+|12    |OBUF   |     2|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:06 ; elapsed = 00:00:17 . Memory (MB): peak = 1183.547 ; gain = 78.809
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:02 ; elapsed = 00:00:17 . Memory (MB): peak = 1184.180 ; gain = 76.473
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:04 ; elapsed = 00:00:16 . Memory (MB): peak = 1183.547 ; gain = 12.672
-Synthesis Optimization Complete : Time (s): cpu = 00:00:06 ; elapsed = 00:00:17 . Memory (MB): peak = 1183.547 ; gain = 78.809
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:15 . Memory (MB): peak = 1184.180 ; gain = 7.129
+Synthesis Optimization Complete : Time (s): cpu = 00:00:03 ; elapsed = 00:00:17 . Memory (MB): peak = 1184.180 ; gain = 76.473
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1194.633 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1196.250 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1201.531 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1197.262 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-28 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+30 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:22 . Memory (MB): peak = 1201.531 ; gain = 96.793
+synth_design: Time (s): cpu = 00:00:04 ; elapsed = 00:00:21 . Memory (MB): peak = 1197.262 ; gain = 89.555
 INFO: [Common 17-1381] The checkpoint 'C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.runs/synth_1/send_tx_btn.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file send_tx_btn_utilization_synth.rpt -pb send_tx_btn_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Mar 18 10:56:30 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 18 11:35:48 2025...
