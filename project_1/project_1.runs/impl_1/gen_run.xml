@@ -1,90 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1742275692">
-  <File Type="BITSTR-BMM" Name="send_tx_btn_bd.bmm"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="send_tx_btn_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="send_tx_btn_timing_summary_init.rpt"/>
-  <File Type="ROUTE-PWR" Name="send_tx_btn_power_routed.rpt"/>
-  <File Type="PA-TCL" Name="send_tx_btn.tcl"/>
-  <File Type="OPT-TIMING" Name="send_tx_btn_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="send_tx_btn_opt.dcp"/>
-  <File Type="ROUTE-PWR-SUM" Name="send_tx_btn_power_summary_routed.pb"/>
-  <File Type="REPORTS-TCL" Name="send_tx_btn_reports.tcl"/>
-  <File Type="OPT-DRC" Name="send_tx_btn_drc_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="send_tx_btn.hwdef"/>
-  <File Type="PWROPT-DCP" Name="send_tx_btn_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="send_tx_btn_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="send_tx_btn_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="send_tx_btn_placed.dcp"/>
-  <File Type="PLACE-IO" Name="send_tx_btn_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="send_tx_btn_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="send_tx_btn_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="send_tx_btn_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="send_tx_btn_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="send_tx_btn_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="send_tx_btn_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-TIMING" Name="send_tx_btn_timing_summary_placed.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="send_tx_btn_postplace_pwropt.dcp"/>
-  <File Type="BG-BIN" Name="send_tx_btn.bin"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="send_tx_btn_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="send_tx_btn_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="send_tx_btn_drc_physopted.rpt"/>
-  <File Type="BITSTR-MSK" Name="send_tx_btn.msk"/>
-  <File Type="PHYSOPT-TIMING" Name="send_tx_btn_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="send_tx_btn_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="send_tx_btn_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="send_tx_btn_routed_bb.dcp"/>
-  <File Type="ROUTE-DRC" Name="send_tx_btn_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="send_tx_btn_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="send_tx_btn_drc_routed.rpx"/>
-  <File Type="BITSTR-MMI" Name="send_tx_btn.mmi"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="send_tx_btn_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="send_tx_btn_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="send_tx_btn_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="send_tx_btn_power_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="send_tx_btn_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="send_tx_btn_route_status.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="send_tx_btn_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="send_tx_btn_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="send_tx_btn_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="send_tx_btn_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="send_tx_btn_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="send_tx_btn_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="send_tx_btn_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="send_tx_btn_bus_skew_routed.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="send_tx_btn_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="send_tx_btn_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="send_tx_btn_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="send_tx_btn_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="send_tx_btn_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="send_tx_btn_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="send_tx_btn_bus_skew_postroute_physopted.pb"/>
-  <File Type="BG-BIT" Name="send_tx_btn.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="send_tx_btn_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BITSTR-RBT" Name="send_tx_btn.rbt"/>
-  <File Type="BITSTR-NKY" Name="send_tx_btn.nky"/>
-  <File Type="PDI-FILE" Name="send_tx_btn.pdi"/>
-  <File Type="RCFI_FILE" Name="send_tx_btn.rcfi"/>
-  <File Type="CFI_FILE" Name="send_tx_btn.cfi"/>
-  <File Type="RNPI_FILE" Name="send_tx_btn.rnpi"/>
-  <File Type="NPI_FILE" Name="send_tx_btn.npi"/>
-  <File Type="RBD_FILE" Name="send_tx_btn.rbd"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1742278890">
+  <File Type="BITSTR-BMM" Name="TOP_UART_bd.bmm"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="TOP_UART_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="TOP_UART_timing_summary_init.rpt"/>
+  <File Type="ROUTE-PWR" Name="TOP_UART_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="TOP_UART.tcl"/>
+  <File Type="OPT-TIMING" Name="TOP_UART_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="TOP_UART_opt.dcp"/>
+  <File Type="ROUTE-PWR-SUM" Name="TOP_UART_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="TOP_UART_reports.tcl"/>
+  <File Type="OPT-DRC" Name="TOP_UART_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="TOP_UART.hwdef"/>
+  <File Type="PWROPT-DCP" Name="TOP_UART_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="TOP_UART_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="TOP_UART_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="TOP_UART_placed.dcp"/>
+  <File Type="PLACE-IO" Name="TOP_UART_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="TOP_UART_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="TOP_UART_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="TOP_UART_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="TOP_UART_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="TOP_UART_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="TOP_UART_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-TIMING" Name="TOP_UART_timing_summary_placed.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="TOP_UART_postplace_pwropt.dcp"/>
+  <File Type="BG-BIN" Name="TOP_UART.bin"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="TOP_UART_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="TOP_UART_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="TOP_UART_drc_physopted.rpt"/>
+  <File Type="BITSTR-MSK" Name="TOP_UART.msk"/>
+  <File Type="PHYSOPT-TIMING" Name="TOP_UART_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="TOP_UART_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="TOP_UART_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="TOP_UART_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="TOP_UART_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="TOP_UART_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="TOP_UART_drc_routed.rpx"/>
+  <File Type="BITSTR-MMI" Name="TOP_UART.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="TOP_UART_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="TOP_UART_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="TOP_UART_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="TOP_UART_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="TOP_UART_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="TOP_UART_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="TOP_UART_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="TOP_UART_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="TOP_UART_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="TOP_UART_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="TOP_UART_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="TOP_UART_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="TOP_UART_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="TOP_UART_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="TOP_UART_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="TOP_UART_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="TOP_UART_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="TOP_UART_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="TOP_UART_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="TOP_UART_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="TOP_UART_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="TOP_UART.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="TOP_UART_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BITSTR-RBT" Name="TOP_UART.rbt"/>
+  <File Type="BITSTR-NKY" Name="TOP_UART.nky"/>
+  <File Type="PDI-FILE" Name="TOP_UART.pdi"/>
+  <File Type="RCFI_FILE" Name="TOP_UART.rcfi"/>
+  <File Type="CFI_FILE" Name="TOP_UART.cfi"/>
+  <File Type="RNPI_FILE" Name="TOP_UART.rnpi"/>
+  <File Type="NPI_FILE" Name="TOP_UART.npi"/>
+  <File Type="RBD_FILE" Name="TOP_UART.rbd"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="send_tx_btn.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="send_tx_btn.sysdef"/>
-  <File Type="BG-BGN" Name="send_tx_btn.bgn"/>
-  <File Type="BG-DRC" Name="send_tx_btn.drc"/>
-  <File Type="RDI-RDI" Name="send_tx_btn.vdi"/>
+  <File Type="BITSTR-LTX" Name="TOP_UART.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="TOP_UART.sysdef"/>
+  <File Type="BG-BGN" Name="TOP_UART.bgn"/>
+  <File Type="BG-DRC" Name="TOP_UART.drc"/>
+  <File Type="RDI-RDI" Name="TOP_UART.vdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/Counter.v">
-      <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/btn_debounce.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -98,14 +91,15 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/send_tx_btn.v">
+    <File Path="$PSRCDIR/sources_1/new/btn_debounce.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/UART.v">
+    <File Path="$PSRCDIR/sources_1/new/send_tx_btn.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -115,7 +109,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="send_tx_btn"/>
+      <Option Name="TopModule" Val="TOP_UART"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>

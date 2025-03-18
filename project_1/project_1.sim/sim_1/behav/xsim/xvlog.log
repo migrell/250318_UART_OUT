@@ -1,0 +1,14 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module uart
+INFO: [VRFC 10-2458] undeclared symbol w_start, assumed default net type wire [C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart1.v:25]
+INFO: [VRFC 10-2458] undeclared symbol send_reg, assumed default net type wire [C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart1.v:32]
+INFO: [VRFC 10-2458] undeclared symbol send_tx_data_reg, assumed default net type wire [C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart1.v:33]
+INFO: [VRFC 10-2458] undeclared symbol w_tx_done, assumed default net type wire [C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart1.v:34]
+INFO: [VRFC 10-2458] undeclared symbol bit_position, assumed default net type wire [C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart1.v:51]
+INFO: [VRFC 10-2458] undeclared symbol active, assumed default net type wire [C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart1.v:52]
+INFO: [VRFC 10-2458] undeclared symbol done, assumed default net type wire [C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart1.v:53]
+INFO: [VRFC 10-311] analyzing module uart_tx
+INFO: [VRFC 10-311] analyzing module baud_tick_gen
+INFO: [VRFC 10-311] analyzing module uart_rx
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.srcs/sim_1/new/tb3.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb_uart

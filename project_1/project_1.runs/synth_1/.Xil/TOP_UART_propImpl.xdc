@@ -19,5 +19,7 @@ set_property src_info {type:XDC file:1 line:67 export:INPUT save:INPUT read:READ
 set_property -dict { PACKAGE_PIN U18   IOSTANDARD LVCMOS33 } [get_ports rst]
 set_property src_info {type:XDC file:1 line:68 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN T18   IOSTANDARD LVCMOS33 } [get_ports btn_start]
+set_property src_info {type:XDC file:1 line:75 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict { PACKAGE_PIN B18  IOSTANDARD LVCMOS33 } [get_ports rx]
 set_property src_info {type:XDC file:1 line:76 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict { PACKAGE_PIN A18   IOSTANDARD LVCMOS33 } [get_ports tx]
+set_property -dict { PACKAGE_PIN A18  IOSTANDARD LVCMOS33 } [get_ports tx]

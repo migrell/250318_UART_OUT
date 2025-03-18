@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.runs/impl_1/send_tx_btn.tcl"
+  variable script "C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.runs/impl_1/TOP_UART.tcl"
   variable category "vivado_impl"
 }
 
@@ -115,6 +115,8 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -123,6 +125,7 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 4
+  set_param synth.incrementalSynthesisCache C:/Users/kccistc/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-1440-DESKTOP-7CFQ9ND/incrSyn
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a35tcpg236-1
   set_property board_part_repo_paths {C:/Users/kccistc/AppData/Roaming/Xilinx/Vivado/2020.2/xhub/board_store/xilinx_board_store} [current_project]
@@ -137,13 +140,13 @@ OPTRACE "set parameters" START { }
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.runs/synth_1/send_tx_btn.dcp
+  add_files -quiet C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.runs/synth_1/TOP_UART.dcp
 OPTRACE "read constraints: implementation" START { }
   read_xdc D:/XDC/Basys-3-Master.xdc
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
-  link_design -top send_tx_btn -part xc7a35tcpg236-1
+  link_design -top TOP_UART -part xc7a35tcpg236-1
 OPTRACE "link_design" END { }
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }
@@ -175,10 +178,10 @@ OPTRACE "opt_design" END { }
 OPTRACE "read constraints: opt_design_post" START { }
 OPTRACE "read constraints: opt_design_post" END { }
 OPTRACE "Opt Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force send_tx_btn_opt.dcp
+  write_checkpoint -force TOP_UART_opt.dcp
 OPTRACE "Opt Design: write_checkpoint" END { }
 OPTRACE "opt_design reports" START { REPORT }
-  create_report "impl_1_opt_report_drc_0" "report_drc -file send_tx_btn_drc_opted.rpt -pb send_tx_btn_drc_opted.pb -rpx send_tx_btn_drc_opted.rpx"
+  create_report "impl_1_opt_report_drc_0" "report_drc -file TOP_UART_drc_opted.rpt -pb TOP_UART_drc_opted.pb -rpx TOP_UART_drc_opted.rpx"
 OPTRACE "opt_design reports" END { }
   close_msg_db -file opt_design.pb
 } RESULT]
@@ -209,12 +212,12 @@ OPTRACE "place_design" END { }
 OPTRACE "read constraints: place_design_post" START { }
 OPTRACE "read constraints: place_design_post" END { }
 OPTRACE "Place Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force send_tx_btn_placed.dcp
+  write_checkpoint -force TOP_UART_placed.dcp
 OPTRACE "Place Design: write_checkpoint" END { }
 OPTRACE "place_design reports" START { REPORT }
-  create_report "impl_1_place_report_io_0" "report_io -file send_tx_btn_io_placed.rpt"
-  create_report "impl_1_place_report_utilization_0" "report_utilization -file send_tx_btn_utilization_placed.rpt -pb send_tx_btn_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file send_tx_btn_control_sets_placed.rpt"
+  create_report "impl_1_place_report_io_0" "report_io -file TOP_UART_io_placed.rpt"
+  create_report "impl_1_place_report_utilization_0" "report_utilization -file TOP_UART_utilization_placed.rpt -pb TOP_UART_utilization_placed.pb"
+  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file TOP_UART_control_sets_placed.rpt"
 OPTRACE "place_design reports" END { }
   close_msg_db -file place_design.pb
 } RESULT]
@@ -240,7 +243,7 @@ OPTRACE "phys_opt_design" END { }
 OPTRACE "read constraints: phys_opt_design_post" START { }
 OPTRACE "read constraints: phys_opt_design_post" END { }
 OPTRACE "Post-Place Phys Opt Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force send_tx_btn_physopt.dcp
+  write_checkpoint -force TOP_UART_physopt.dcp
 OPTRACE "Post-Place Phys Opt Design: write_checkpoint" END { }
 OPTRACE "phys_opt_design report" START { REPORT }
 OPTRACE "phys_opt_design report" END { }
@@ -268,17 +271,17 @@ OPTRACE "route_design" END { }
 OPTRACE "read constraints: route_design_post" START { }
 OPTRACE "read constraints: route_design_post" END { }
 OPTRACE "Route Design: write_checkpoint" START { CHECKPOINT }
-  write_checkpoint -force send_tx_btn_routed.dcp
+  write_checkpoint -force TOP_UART_routed.dcp
 OPTRACE "Route Design: write_checkpoint" END { }
 OPTRACE "route_design reports" START { REPORT }
-  create_report "impl_1_route_report_drc_0" "report_drc -file send_tx_btn_drc_routed.rpt -pb send_tx_btn_drc_routed.pb -rpx send_tx_btn_drc_routed.rpx"
-  create_report "impl_1_route_report_methodology_0" "report_methodology -file send_tx_btn_methodology_drc_routed.rpt -pb send_tx_btn_methodology_drc_routed.pb -rpx send_tx_btn_methodology_drc_routed.rpx"
-  create_report "impl_1_route_report_power_0" "report_power -file send_tx_btn_power_routed.rpt -pb send_tx_btn_power_summary_routed.pb -rpx send_tx_btn_power_routed.rpx"
-  create_report "impl_1_route_report_route_status_0" "report_route_status -file send_tx_btn_route_status.rpt -pb send_tx_btn_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file send_tx_btn_timing_summary_routed.rpt -pb send_tx_btn_timing_summary_routed.pb -rpx send_tx_btn_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file send_tx_btn_incremental_reuse_routed.rpt"
-  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file send_tx_btn_clock_utilization_routed.rpt"
-  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file send_tx_btn_bus_skew_routed.rpt -pb send_tx_btn_bus_skew_routed.pb -rpx send_tx_btn_bus_skew_routed.rpx"
+  create_report "impl_1_route_report_drc_0" "report_drc -file TOP_UART_drc_routed.rpt -pb TOP_UART_drc_routed.pb -rpx TOP_UART_drc_routed.rpx"
+  create_report "impl_1_route_report_methodology_0" "report_methodology -file TOP_UART_methodology_drc_routed.rpt -pb TOP_UART_methodology_drc_routed.pb -rpx TOP_UART_methodology_drc_routed.rpx"
+  create_report "impl_1_route_report_power_0" "report_power -file TOP_UART_power_routed.rpt -pb TOP_UART_power_summary_routed.pb -rpx TOP_UART_power_routed.rpx"
+  create_report "impl_1_route_report_route_status_0" "report_route_status -file TOP_UART_route_status.rpt -pb TOP_UART_route_status.pb"
+  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file TOP_UART_timing_summary_routed.rpt -pb TOP_UART_timing_summary_routed.pb -rpx TOP_UART_timing_summary_routed.rpx -warn_on_violation "
+  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file TOP_UART_incremental_reuse_routed.rpt"
+  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file TOP_UART_clock_utilization_routed.rpt"
+  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file TOP_UART_bus_skew_routed.rpt -pb TOP_UART_bus_skew_routed.pb -rpx TOP_UART_bus_skew_routed.rpx"
 OPTRACE "route_design reports" END { }
 OPTRACE "route_design misc" START { }
   close_msg_db -file route_design.pb
@@ -286,7 +289,7 @@ OPTRACE "route_design write_checkpoint" START { CHECKPOINT }
 OPTRACE "route_design write_checkpoint" END { }
 } RESULT]
 if {$rc} {
-  write_checkpoint -force send_tx_btn_routed_error.dcp
+  write_checkpoint -force TOP_UART_routed_error.dcp
   step_failed route_design
   return -code error $RESULT
 } else {
@@ -304,16 +307,16 @@ set rc [catch {
   create_msg_db write_bitstream.pb
 OPTRACE "read constraints: write_bitstream" START { }
 OPTRACE "read constraints: write_bitstream" END { }
-  catch { write_mem_info -force -no_partial_mmi send_tx_btn.mmi }
+  catch { write_mem_info -force -no_partial_mmi TOP_UART.mmi }
 OPTRACE "write_bitstream setup" END { }
 OPTRACE "write_bitstream" START { }
-  write_bitstream -force send_tx_btn.bit 
+  write_bitstream -force TOP_UART.bit 
 OPTRACE "write_bitstream" END { }
 OPTRACE "write_bitstream misc" START { }
 OPTRACE "read constraints: write_bitstream_post" START { }
 OPTRACE "read constraints: write_bitstream_post" END { }
-  catch {write_debug_probes -quiet -force send_tx_btn}
-  catch {file copy -force send_tx_btn.ltx debug_nets.ltx}
+  catch {write_debug_probes -quiet -force TOP_UART}
+  catch {file copy -force TOP_UART.ltx debug_nets.ltx}
   close_msg_db -file write_bitstream.pb
 } RESULT]
 if {$rc} {
