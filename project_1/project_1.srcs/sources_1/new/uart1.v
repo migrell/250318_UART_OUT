@@ -27,33 +27,33 @@ module uart (
     // );
 
 
-    // uart_rx U_UART_RX (
-    //     .clk(clk),
-    //     .rst(rst),
-    //     .tick(w_tick),
-    //     .rx(rx),
-    //     .rx_done(rx_done),
-    //     .rx_data(rx_data)
+    uart_rx U_UART_RX (
+        .clk(clk),
+        .rst(rst),
+        .tick(w_tick),
+        .rx(rx),
+        .rx_done(rx_done),
+        .rx_data(rx_data)
 
-    // );
+    );
 
-    // // 보드레이트 생성기 모듈
-    // baud_tick_gen U_BAUD_Tick_Gen (
-    //     .clk(clk),
-    //     .rst(rst),
-    //     .baud_tick(w_tick)
-    // );
+    // 보드레이트 생성기 모듈
+    baud_tick_gen U_BAUD_Tick_Gen (
+        .clk(clk),
+        .rst(rst),
+        .baud_tick(w_tick)
+    );
 
-    // // 비트 카운터 모듈
-    // bit_counter U_BIT_COUNTER (
-    //     .clk(clk),
-    //     .rst(rst),
-    //     .start(w_start),
-    //     .tick(w_tick),
-    //     .bit_position(bit_position),
-    //     .active(active),
-    //     .done(done)
-    // );
+    // 비트 카운터 모듈
+    bit_counter U_BIT_COUNTER (
+        .clk(clk),
+        .rst(rst),
+        .start(w_start),
+        .tick(w_tick),
+        .bit_position(bit_position),
+        .active(active),
+        .done(done)
+    );
 
 
 
@@ -487,70 +487,28 @@ module TOP_UART (
 );
     wire w_rx_done;
     wire [7:0] w_rx_data;
-    wire w_tick;
-
-
-       // 보드레이트 생성기
-    baud_tick_gen U_BAUD_TICK (
-        .clk(clk),
-        .rst(rst),
-        .baud_tick(w_tick)
-    );
     
-    // UART 수신기
-    uart_rx U_UART_RX (
-        .clk(clk),
-        .rst(rst),
-        .tick(w_tick),
-        .rx(rx),
-        .rx_done(w_rx_done),
-        .rx_data(w_rx_data)
-    );
-    
-    // UART 송신기 - 이 모듈만 tx 신호를 구동하도록 합니다
-    uart_tx U_UART_TX (
-        .clk(clk),
-        .rst(rst),
-        .tick(w_tick),
-        .start_trigger(w_rx_done),
-        .data_in(w_rx_data),
-        .o_tx_done(),
-        .o_tx(tx),
-        .state_out()
-
-    );
-
-    
-    // 비트 카운터 모듈
-    bit_counter U_BIT_COUNTER (
-        .clk(clk),
-        .rst(rst),
-        .start(w_start),
-        .tick(w_tick),
-        .bit_position(bit_position),
-        .active(active),
-        .done(done)
-    );
-
-
+    // 단일 UART 모듈 사용 - 회로도에 맞게 구성
     uart U_UART (
         .clk(clk),
         .rst(rst),
-        .btn_start(w_rx_done),
-        .tx_data_in(w_rx_data),
+        .btn_start(w_rx_done),  // 수신 완료 시 송신 시작
+        .tx_data_in(w_rx_data), // 수신한 데이터를 송신 데이터로 사용
         .tx_done(),
         .tx(tx),
+        .state_out(),
         .rx(rx),
         .rx_done(w_rx_done),
         .rx_data(w_rx_data)
     );
+
+endmodule
 
 
 
     // UART 송신기
 
 
-endmodule
 
 
 
