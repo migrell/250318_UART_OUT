@@ -5,7 +5,7 @@ module send_tx_btn (
     input  btn_start,
     output tx_done,
     output tx,
-    // 디버깅 출력 추가
+    // 디버깅 출력
     output debug_active,
     output debug_done,
     output [3:0] debug_bit_position
@@ -24,12 +24,20 @@ module send_tx_btn (
     assign debug_done = done;
 
     // 내부 신호와 레지스터 선언
-    parameter IDLE = 0, START = 1, SEND = 2;
+    parameter IDLE = 0, LOAD = 1, START = 2, SEND = 3;
+    parameter BUFFER_SIZE = 16;  // 16문자 버퍼 크기
 
     reg [1:0] state, next_state;
     reg [7:0] send_tx_data_reg, send_tx_data_next;
     reg send_reg, send_next;
     reg [3:0] send_count_reg, send_count_next;
+    
+    // 버퍼 관련 레지스터 추가
+    reg [7:0] char_buffer [0:BUFFER_SIZE-1];  // 16문자 버퍼
+    reg [3:0] buffer_index_reg, buffer_index_next;  // 현재 전송할 문자 인덱스
+    reg buffer_ready_reg, buffer_ready_next;  // 버퍼 준비 상태
+    
+    integer i;  // 루프 변수
 
     // 시프트 레지스터 기반 버튼 디바운싱 모듈 사용
     btn_debounce U_Start_btn (
@@ -60,7 +68,7 @@ module send_tx_btn (
     bit_counter U_BIT_COUNTER (
         .clk(clk),
         .rst(rst),
-        .start(w_start),  // 디바운스된 버튼 입력 사용
+        .start(w_start),
         .tick(w_tick),
         .bit_position(bit_position),
         .active(active),
@@ -77,11 +85,20 @@ module send_tx_btn (
             send_tx_data_reg <= 8'h30;  // "0" ASCII 코드
             send_reg <= 1'b0;
             send_count_reg <= 4'b0;
+            buffer_index_reg <= 4'b0;
+            buffer_ready_reg <= 1'b0;
+            
+            // 버퍼 초기화
+            for (i = 0; i < BUFFER_SIZE; i = i + 1) begin
+                char_buffer[i] <= 8'h30 + i;  // "0"부터 시작하는 문자열 (0,1,2,3...)
+            end
         end else begin
             state <= next_state;
             send_tx_data_reg <= send_tx_data_next;
             send_reg <= send_next;
             send_count_reg <= send_count_next;
+            buffer_index_reg <= buffer_index_next;
+            buffer_ready_reg <= buffer_ready_next;
         end
     end
 
@@ -90,55 +107,58 @@ module send_tx_btn (
         // 기본값 설정
         send_tx_data_next = send_tx_data_reg;
         next_state = state;
-        send_next = 1'b0;  // 기본값을 비활성화로 변경하여 우발적인 전송 방지
+        send_next = 1'b0;  // 기본값은 비활성화
         send_count_next = send_count_reg;
+        buffer_index_next = buffer_index_reg;
+        buffer_ready_next = buffer_ready_reg;
         
         case (state)
             IDLE: begin
-                // IDLE 상태에서는 송신 신호 확실히 비활성화
                 send_next = 1'b0;
+                buffer_index_next = 4'b0;  // 버퍼 인덱스 리셋
                 
-                if (w_start) begin  // 디바운스된 버튼 입력 감지
-                    // 다음 문자 준비
-                    if (send_tx_data_reg == 8'h7A) begin  // 'z'
-                        send_tx_data_next = 8'h30;  // '0'
-                    end else begin
-                        send_tx_data_next = send_tx_data_reg + 1'b1;
-                    end
-                    next_state = START;
+                if (w_start) begin  // 버튼 입력 감지
+                    next_state = LOAD;
+                    buffer_ready_next = 1'b1;  // 버퍼 준비 완료
                 end
             end
             
+            LOAD: begin
+                // 버퍼에서 다음 문자 로드
+                send_tx_data_next = char_buffer[buffer_index_reg];
+                next_state = START;
+            end
+            
             START: begin
-                // 송신 시작 신호 - 한 사이클 동안만 활성화
+                // 송신 시작 신호 활성화
                 send_next = 1'b1;
                 
-                // tx_done이 LOW로 변하면 송신 시작됨을 감지
+                // 송신이 시작되면 SEND 상태로 전환
                 if (w_tx_done == 1'b0) begin
                     next_state = SEND;
                 end
             end
             
             SEND: begin
-                // 송신 중에는 송신 신호 비활성화하여 중복 전송 방지
+                // 송신 중에는 송신 신호 비활성화
                 send_next = 1'b0;
                 
-                // tx_done이 다시 HIGH가 되면 송신 완료
+                // 송신이 완료되면 다음 문자 처리
                 if (w_tx_done == 1'b1) begin
-                    send_count_next = send_count_reg + 1'b1;
-                    
-                    if (send_count_reg >= 4'd14) begin  // 15번째 전송 후
+                    if (buffer_index_reg == BUFFER_SIZE - 1) begin
+                        // 마지막 문자 전송 완료 - 다시 IDLE 상태로
                         next_state = IDLE;
-                        send_count_next = 4'b0;  // 카운터 리셋
+                        buffer_ready_next = 1'b0;  // 버퍼 준비 해제
                     end else begin
-                        next_state = IDLE;  // 다음 버튼 입력 대기
+                        // 다음 문자 전송 준비
+                        buffer_index_next = buffer_index_reg + 1'b1;
+                        next_state = LOAD;
                     end
                 end
             end
             
             default: begin
                 next_state = IDLE;
-                send_next = 1'b0;
             end
         endcase
     end
