@@ -1,7 +1,7 @@
 Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
-| Date         : Tue Mar 18 11:36:30 2025
+| Date         : Tue Mar 18 11:52:04 2025
 | Host         : DESKTOP-7CFQ9ND running 64-bit major release  (build 9200)
 | Command      : report_methodology -file send_tx_btn_methodology_drc_routed.rpt -pb send_tx_btn_methodology_drc_routed.pb -rpx send_tx_btn_methodology_drc_routed.rpx
 | Design       : send_tx_btn
@@ -23,12 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 11
+             Violations found: 17
 +-----------+------------------+-------------------------------+------------+
 | Rule      | Severity         | Description                   | Violations |
 +-----------+------------------+-------------------------------+------------+
 | TIMING-17 | Critical Warning | Non-clocked sequential cell   | 8          |
-| TIMING-18 | Warning          | Missing input or output delay | 3          |
+| TIMING-18 | Warning          | Missing input or output delay | 9          |
 +-----------+------------------+-------------------------------+------------+
 
 2. REPORT DETAILS
@@ -80,10 +80,40 @@ Related violations: <none>
 
 TIMING-18#2 Warning
 Missing input or output delay  
-An output delay is missing on tx relative to clock(s) sys_clk_pin
+An output delay is missing on debug_active relative to clock(s) sys_clk_pin
 Related violations: <none>
 
 TIMING-18#3 Warning
+Missing input or output delay  
+An output delay is missing on debug_bit_position[0] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An output delay is missing on debug_bit_position[1] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An output delay is missing on debug_bit_position[2] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An output delay is missing on debug_bit_position[3] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An output delay is missing on debug_done relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An output delay is missing on tx relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#9 Warning
 Missing input or output delay  
 An output delay is missing on tx_done relative to clock(s) sys_clk_pin
 Related violations: <none>

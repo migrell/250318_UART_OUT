@@ -4,10 +4,24 @@ module send_tx_btn (
     input  rst,
     input  btn_start,
     output tx_done,
-    output tx
+    output tx,
+    // 디버깅 출력 추가
+    output debug_active,
+    output debug_done,
+    output [3:0] debug_bit_position
 );
+    // 내부 신호 선언
     wire w_start;
     wire w_tx_done;
+    wire w_tick;
+    wire [3:0] bit_position;
+    wire active;
+    wire done;
+
+    // 디버깅용 출력 연결
+    assign debug_bit_position = bit_position;
+    assign debug_active = active;
+    assign debug_done = done;
 
     // 내부 신호와 레지스터 선언
     parameter IDLE = 0, START = 1, SEND = 2;
@@ -35,20 +49,22 @@ module send_tx_btn (
         .tx(tx)
     );
 
-      baud_tick_gen U_BAUD_Tick_Gen (
+    // 보드레이트 생성기 모듈
+    baud_tick_gen U_BAUD_Tick_Gen (
         .clk(clk),
         .rst(rst),
         .baud_tick(w_tick)
     );
-
-        bit_counter U_BIT_COUNTER (
+    
+    // 비트 카운터 모듈
+    bit_counter U_BIT_COUNTER (
         .clk(clk),
         .rst(rst),
-        .start(btn_start),
+        .start(w_start),  // 디바운스된 버튼 입력 사용
         .tick(w_tick),
-        .bit_position(bit_pos),
-        .active(bit_active),
-        .done(bit_done)
+        .bit_position(bit_position),
+        .active(active),
+        .done(done)
     );
 
     // tx_done 출력 신호 연결
@@ -74,14 +90,15 @@ module send_tx_btn (
         // 기본값 설정
         send_tx_data_next = send_tx_data_reg;
         next_state = state;
-        send_next = send_reg;  // 이전 값 유지가 기본
+        send_next = 1'b0;  // 기본값을 비활성화로 변경하여 우발적인 전송 방지
         send_count_next = send_count_reg;
         
         case (state)
             IDLE: begin
-                send_next = 1'b0;  // 송신 신호 비활성화
+                // IDLE 상태에서는 송신 신호 확실히 비활성화
+                send_next = 1'b0;
                 
-                if (w_start) begin  // 버튼 입력 감지
+                if (w_start) begin  // 디바운스된 버튼 입력 감지
                     // 다음 문자 준비
                     if (send_tx_data_reg == 8'h7A) begin  // 'z'
                         send_tx_data_next = 8'h30;  // '0'
@@ -93,17 +110,18 @@ module send_tx_btn (
             end
             
             START: begin
-                send_next = 1'b1;  // 송신 시작 신호 활성화
+                // 송신 시작 신호 - 한 사이클 동안만 활성화
+                send_next = 1'b1;
                 
-                // tx_done이 LOW로 변하면 송신 시작됨
+                // tx_done이 LOW로 변하면 송신 시작됨을 감지
                 if (w_tx_done == 1'b0) begin
                     next_state = SEND;
                 end
             end
             
             SEND: begin
-                // 송신 중에는 송신 신호 유지
-                send_next = 1'b1;
+                // 송신 중에는 송신 신호 비활성화하여 중복 전송 방지
+                send_next = 1'b0;
                 
                 // tx_done이 다시 HIGH가 되면 송신 완료
                 if (w_tx_done == 1'b1) begin
@@ -120,6 +138,7 @@ module send_tx_btn (
             
             default: begin
                 next_state = IDLE;
+                send_next = 1'b0;
             end
         endcase
     end

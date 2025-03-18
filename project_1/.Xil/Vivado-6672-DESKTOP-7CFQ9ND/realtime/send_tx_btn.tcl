@@ -35,8 +35,9 @@ set rt::rc [catch {
     set rt::useElabCache false
     if {$rt::useElabCache == false} {
       rt::read_verilog {
-      C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/button.v
-      C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/uart_1.v
+      C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/Counter.v
+      C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/UART.v
+      C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/btn_debounce.v
       C:/Users/kccistc/Desktop/250318_UARTT/project_1/project_1.srcs/sources_1/new/send_tx_btn.v
     }
       rt::filesetChecksum
