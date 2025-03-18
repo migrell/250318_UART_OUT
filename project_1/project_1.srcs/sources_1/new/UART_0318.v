@@ -329,9 +329,82 @@ module uart_rx (
     input tick,
     input rx,
     output rx_done,
-    output[7:0] rx_data
+    output [7:0] rx_data
 );
+
+
+    parameter IDLE = 0, START = 1, DATA = 2, STOP = 3;
+    reg [1:0] state, next;
+
+    reg rx_done_reg, rx_done_next;
+    reg [2:0] bit_count_reg, bit_count_next;
+    reg [3:0] tick_count_reg, tick_count_next;
+    reg [7:0] rx_data_reg, rx_data_next;
+
+    //output
+    assign rx_done = rx_done_reg;
+    assign rx_data = rx_data_reg;
+
+    //state
+
+    always @(posedge clk, posedge rst) begin
+        if (rst) begin
+            state <= 0;
+            rx_done_reg <= 0;
+            rx_data_reg <= 0;
+            bit_count_reg <= 0;
+            tick_count_reg <= 0;
+
+        end else begin
+            state <= next;
+            rx_done_reg <= rx_done_next;
+            rx_data_reg <= rx_data_next;
+            bit_count_reg <= bit_count_next;
+            tick_count_reg <= tick_count_next;
+        end
+
+    end  //state complete 
+
+    //next
+    always @(*) begin
+        next = state;
+        case (state)
+            IDLE: begin
+                if (rx == 0) begin
+                    next = START;
+                end
+            end
+
+
+            START: begin
+                if (tick_count_reg == 7) begin
+                    next = DATA;
+
+                end
+            end
+
+
+            DATA: begin
+                if (tick_count_reg == 15) begin
+                    if (bit_count_reg == 7) begin
+                        next = STOP;
+                    end
+
+                end
+            end
+
+            STOP:
+            if (tick_count_reg == 7) begin
+                next = IDLE;
+            end
+
+        endcase
+    end
+
+
+
+
 
 endmodule
 
-    parameter IDLE =0, START = 1, DATA =2 STOP = 3;
+
