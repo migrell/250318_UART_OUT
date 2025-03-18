@@ -9,17 +9,17 @@ module uart (
     output tx,
     output [1:0] state_out,
 
-    input rx, 
+    input rx,
     output rx_done,
     output [7:0] rx_data
 );
     // --------- 내부 신호 선언 ---------
     wire w_tick;
 
-    
+
     // 시프트 레지스터 기반 버튼 디바운싱 모듈 사용
     btn_debounce U_Start_btn (
-        .clk(clk),
+        .clk  (clk),
         .reset(rst),
         .i_btn(btn_start),
         .o_btn(w_start)
@@ -41,7 +41,7 @@ module uart (
         .rst(rst),
         .baud_tick(w_tick)
     );
-    
+
     // 비트 카운터 모듈
     bit_counter U_BIT_COUNTER (
         .clk(clk),
@@ -53,13 +53,13 @@ module uart (
         .done(done)
     );
 
-    uart_rx U_UART_RX(
-            .clk(clk),
-            .rst(rst),
-            .tick(w_tick),
-            .rx(rx),
-            .rx_done(rx_done),
-            .rx_data(rx_data)
+    uart_rx U_UART_RX (
+        .clk(clk),
+        .rst(rst),
+        .tick(w_tick),
+        .rx(rx),
+        .rx_done(rx_done),
+        .rx_data(rx_data)
 
 
 
@@ -421,9 +421,9 @@ module uart_rx (
         next = state;
         tick_count_next = tick_count_reg;  // 초기화
         bit_count_next = bit_count_reg;
-        rx_done_next = rx_done_reg;  // 누락된 초기화 추가
-        rx_data_next = rx_data_reg;  // 누락된 초기화 추가
-        
+        rx_done_next = 0;  // 누락된 초기화 추가
+        // rx_data_next = rx_data_reg;  // 누락된 초기화 추가
+
         case (state)
             IDLE: begin
                 tick_count_next = 0;
@@ -453,11 +453,11 @@ module uart_rx (
                         rx_data_next[bit_count_reg] = rx;
                         if (bit_count_reg == 7) begin
                             next = STOP;
-                            tick_count_next = 0; // tick count 초기화
+                            tick_count_next = 0;  // tick count 초기화
                         end else begin
                             next = DATA;
                             bit_count_next = bit_count_reg + 1;
-                            tick_count_next = 0; // tick count 초기화
+                            tick_count_next = 0;  // tick count 초기화
                         end
                     end else begin
                         tick_count_next = tick_count_reg + 1;
@@ -467,15 +467,15 @@ module uart_rx (
 
             STOP: begin
                 if (tick == 1) begin
-                    if (tick_count_reg == 7) begin
-                        next = IDLE;
+                    if (tick_count_reg == 23) begin //STATE 1 FRAME 빨라서 TICK 수정
                         rx_done_next = 1;  // 데이터 수신 완료 신호 설정
                     end else begin
                         tick_count_next = tick_count_reg + 1;
                     end
                 end
             end
-            
+
+
             default: begin
                 next = IDLE;
                 tick_count_next = 0;
@@ -485,4 +485,46 @@ module uart_rx (
         endcase
     end
 endmodule
+
+module TOP_UART (
+    input  clk,
+    input  rst,
+    input  rx,
+    output tx
+
+);
+    wire w_rx_done;
+    wire [7:0] w_rx_data;
+
+    uart U_UART(
+        .clk(clk),
+        .rst(rst),
+        .btn_start(),
+        .tx_data_in(w_rx_data),
+        .tx_done(),
+        .tx(tx),
+        .rx(rx),
+        .rx_done(w_rx_done),
+        .rx_data(w_rx_data)
+
+    );
+
+endmodule
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
 
