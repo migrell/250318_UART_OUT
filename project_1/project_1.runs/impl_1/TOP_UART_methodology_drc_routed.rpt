@@ -1,0 +1,140 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Tue Mar 18 17:06:02 2025
+| Host         : DESKTOP-7CFQ9ND running 64-bit major release  (build 9200)
+| Command      : report_methodology -file TOP_UART_methodology_drc_routed.rpt -pb TOP_UART_methodology_drc_routed.pb -rpx TOP_UART_methodology_drc_routed.rpx
+| Design       : TOP_UART
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Fully Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 18
++-----------+----------+-------------------------------+------------+
+| Rule      | Severity | Description                   | Violations |
++-----------+----------+-------------------------------+------------+
+| LUTAR-1   | Warning  | LUT drives async reset alert  | 1          |
+| TIMING-18 | Warning  | Missing input or output delay | 17         |
++-----------+----------+-------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell U_UART/U_UART_RX/FSM_sequential_state[2]_i_2, with 2 or more inputs, drives asynchronous preset/clear pin(s) U_FND_CTR/display_data_reg_reg[0]/CLR,
+U_FND_CTR/display_data_reg_reg[1]/CLR,
+U_FND_CTR/display_data_reg_reg[2]/CLR,
+U_FND_CTR/display_data_reg_reg[3]/CLR,
+U_FND_CTR/display_data_reg_reg[4]/PRE,
+U_FND_CTR/display_data_reg_reg[5]/PRE,
+U_FND_CTR/display_data_reg_reg[6]/CLR,
+U_FND_CTR/display_data_reg_reg[7]/CLR,
+U_UART/U_BAUD_Tick_Gen/count_reg_reg[0]/CLR,
+U_UART/U_BAUD_Tick_Gen/count_reg_reg[1]/CLR,
+U_UART/U_BAUD_Tick_Gen/count_reg_reg[2]/CLR,
+U_UART/U_BAUD_Tick_Gen/count_reg_reg[3]/CLR,
+U_UART/U_BAUD_Tick_Gen/count_reg_reg[4]/CLR,
+U_UART/U_BAUD_Tick_Gen/count_reg_reg[5]/CLR,
+U_UART/U_BAUD_Tick_Gen/count_reg_reg[6]/CLR (the first 15 of 51 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on rx relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An output delay is missing on debug_active relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An output delay is missing on debug_bit_position[0] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An output delay is missing on debug_bit_position[1] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An output delay is missing on debug_bit_position[2] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An output delay is missing on debug_bit_position[3] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An output delay is missing on debug_done relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An output delay is missing on fnd_font[0] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An output delay is missing on fnd_font[1] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An output delay is missing on fnd_font[2] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An output delay is missing on fnd_font[3] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An output delay is missing on fnd_font[4] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An output delay is missing on fnd_font[5] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay  
+An output delay is missing on fnd_font[6] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#15 Warning
+Missing input or output delay  
+An output delay is missing on fnd_font[7] relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#16 Warning
+Missing input or output delay  
+An output delay is missing on tx relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+TIMING-18#17 Warning
+Missing input or output delay  
+An output delay is missing on tx_done relative to clock(s) sys_clk_pin
+Related violations: <none>
+
+

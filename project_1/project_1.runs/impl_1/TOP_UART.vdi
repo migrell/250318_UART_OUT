@@ -1,14 +1,14 @@
-
-*** Running vivado
-    with args -log TOP_UART.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source TOP_UART.tcl -notrace
-
-
-
-****** Vivado v2020.2 (64-bit)
-  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
-  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
-
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Mar 18 17:05:31 2025
+# Process ID: 15068
+# Current directory: C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.runs/impl_1
+# Command line: vivado.exe -log TOP_UART.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source TOP_UART.tcl -notrace
+# Log file: C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.runs/impl_1/TOP_UART.vdi
+# Journal file: C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
 source TOP_UART.tcl -notrace
 Command: link_design -top TOP_UART -part xc7a35tcpg236-1
 Design is defaulting to srcset: sources_1
