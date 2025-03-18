@@ -399,9 +399,11 @@ module uart_rx (
                 if (tick_count_reg == 15) begin
                     if (bit_count_reg == 7) begin
                         next = STOP;
+                        tick_count_next = 0;
                     end else begin
                         next = DATA;
                         bit_count_next =bit_count_reg +1;
+                        tick_count_next = 0;
                     end 
 
                 end else begin
