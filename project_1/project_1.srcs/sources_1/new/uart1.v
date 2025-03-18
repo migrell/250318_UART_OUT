@@ -2,10 +2,13 @@ module TOP_UART (
     input clk,
     input rst,
     input rx,
-    output tx
+    output tx,
+    output [7:0] fnd_font,
+    output [3:0] fnd_comm
 );
     wire w_rx_done;
     wire [7:0] w_rx_data;
+
 
     uart U_UART(
     .clk(clk),
@@ -18,6 +21,15 @@ module TOP_UART (
     .rx_done(w_rx_done),
     .rx_data(w_rx_data)
 );
+
+    simple_fnd_ctr U_FND_CTR(
+        .clk(clk),
+        .reset(rst),
+        .rx_data(w_rx_data),
+        .rx_done(w_rx_done),
+        .fnd_font(fnd_font),
+        .fnd_comm(fnd_comm)
+    );
 
 endmodule
 
@@ -320,12 +332,49 @@ module baud_tick_gen (  // 모듈 이름 수정
 endmodule
 
 
+module simple_fnd_ctr (
+    input clk,
+    input reset,
+    input [7:0] rx_data,
+    input rx_done,
+    output [7:0] fnd_font,
+    output [3:0] fnd_comm
+);
+    
 
 
+    assign fnd_comm =4'b1110;
+
+    reg [3:0] display_data;
+
+      // ASCII 코드를 BCD로 변환 (0-9, A-F 범위만 처리)
+    always @(*) begin
+        if (rx_data >= 8'h30 && rx_data <= 8'h39) begin
+            // ASCII '0'-'9' -> BCD 0-9
+            display_data = rx_data[3:0];
+        end else if (rx_data >= 8'h41 && rx_data <= 8'h46) begin
+            // ASCII 'A'-'F' -> BCD 10-15
+            display_data = rx_data - 8'h41 + 4'd10;
+        end else if (rx_data >= 8'h61 && rx_data <= 8'h66) begin
+            // ASCII 'a'-'f' -> BCD 10-15
+            display_data = rx_data - 8'h61 + 4'd10;
+        end else begin
+            // 다른 문자는 0으로 표시
+            display_data = 4'h0;
+        end
+    end
+
+    wire [6:0] seg_pattern;
+
+    bcdtoseg U_BCDTOSEG(
+        .bcd(display_data),
+        .seg(seg_pattern)
+    );
 
 
+    assign fnd_font = {1'b1, seg_pattern};
 
-
+    endmodule
 
 
 
