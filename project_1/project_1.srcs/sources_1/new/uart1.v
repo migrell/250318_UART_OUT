@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module TOP_UART (
     input clk,
     input rst,
@@ -8,35 +6,22 @@ module TOP_UART (
 );
     wire w_rx_done;
     wire [7:0] w_rx_data;
-    
-    // 지속적인 송신을 위한 래치 신호
-    reg send_latch;
-    
-    always @(posedge clk, posedge rst) begin
-        if(rst) begin
-            send_latch <= 0;
-        end else if(w_rx_done) begin
-            // 수신 완료 신호가 발생하면 송신 래치 활성화
-            send_latch <= 1;
-        end else if(tx_done) begin
-            // 송신 완료 후 래치 비활성화 (재트리거를 위해)
-            send_latch <= 0;
-        end
-    end
 
     uart U_UART(
-        .clk(clk),
-        .rst(rst),
-        .btn_start(send_latch),  // 래치된 신호 사용
-        .tx_data_in(w_rx_data),
-        .tx_done(tx_done),       // tx_done 신호 연결 필요
-        .tx(tx),
-        .rx(rx),
-        .rx_done(w_rx_done),
-        .rx_data(w_rx_data)
-    );
+    .clk(clk),
+    .rst(rst),
+    .btn_start(w_rx_done),
+    .tx_data_in(w_rx_data),
+    .tx_done(),
+    .tx(tx), 
+    .rx(rx),
+    .rx_done(w_rx_done),
+    .rx_data(w_rx_data)
+);
 
 endmodule
+
+
 
 module uart(
     input clk,
