@@ -17,6 +17,43 @@ module uart (
     wire w_tick;
 
 
+        uart U_UART_TX (
+        .clk(clk),
+        .rst(rst),
+        .btn_start(send_reg),
+        .tx_data_in(send_tx_data_reg),
+        .tx_done(w_tx_done),
+        .tx(tx)
+    );
+
+
+    uart_rx U_UART_RX (
+        .clk(clk),
+        .rst(rst),
+        .tick(w_tick),
+        .rx(rx),
+        .rx_done(rx_done),
+        .rx_data(rx_data)
+
+    );
+
+    // 보드레이트 생성기 모듈
+    baud_tick_gen U_BAUD_Tick_Gen (
+        .clk(clk),
+        .rst(rst),
+        .baud_tick(w_tick)
+    );
+
+    // 비트 카운터 모듈
+    bit_counter U_BIT_COUNTER (
+        .clk(clk),
+        .rst(rst),
+        .start(w_start),
+        .tick(w_tick),
+        .bit_position(bit_position),
+        .active(active),
+        .done(done)
+    );
 
 
 
@@ -463,43 +500,7 @@ module TOP_UART (
     // );
 
     // UART 송신 모듈
-    uart U_UART_TX (
-        .clk(clk),
-        .rst(rst),
-        .btn_start(send_reg),
-        .tx_data_in(send_tx_data_reg),
-        .tx_done(w_tx_done),
-        .tx(tx)
-    );
 
-
-    uart_rx U_UART_RX (
-        .clk(clk),
-        .rst(rst),
-        .tick(w_tick),
-        .rx(rx),
-        .rx_done(rx_done),
-        .rx_data(rx_data)
-
-    );
-
-    // 보드레이트 생성기 모듈
-    baud_tick_gen U_BAUD_Tick_Gen (
-        .clk(clk),
-        .rst(rst),
-        .baud_tick(w_tick)
-    );
-
-    // 비트 카운터 모듈
-    bit_counter U_BIT_COUNTER (
-        .clk(clk),
-        .rst(rst),
-        .start(w_start),
-        .tick(w_tick),
-        .bit_position(bit_position),
-        .active(active),
-        .done(done)
-    );
 
     uart U_UART (
         .clk(clk),
