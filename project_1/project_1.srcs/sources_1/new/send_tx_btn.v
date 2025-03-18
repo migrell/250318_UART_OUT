@@ -43,41 +43,6 @@ module send_tx_btn (
     
     integer i;  // 루프 변수
 
-    // 시프트 레지스터 기반 버튼 디바운싱 모듈 사용
-    btn_debounce U_Start_btn (
-        .clk(clk),
-        .reset(rst),
-        .i_btn(btn_start),
-        .o_btn(w_start)
-    );
-
-    // UART 송신 모듈
-    uart U_UART (
-        .clk(clk),
-        .rst(rst),
-        .btn_start(send_reg),
-        .tx_data_in(send_tx_data_reg),
-        .tx_done(w_tx_done),
-        .tx(tx)
-    );
-
-    // 보드레이트 생성기 모듈
-    baud_tick_gen U_BAUD_Tick_Gen (
-        .clk(clk),
-        .rst(rst),
-        .baud_tick(w_tick)
-    );
-    
-    // 비트 카운터 모듈
-    bit_counter U_BIT_COUNTER (
-        .clk(clk),
-        .rst(rst),
-        .start(w_start),
-        .tick(w_tick),
-        .bit_position(bit_position),
-        .active(active),
-        .done(done)
-    );
 
     // tx_done 출력 신호 연결
     assign tx_done = w_tx_done;
