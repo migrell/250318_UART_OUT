@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Tue Mar 18 15:22:03 2025
-# Process ID: 3704
+# Start of session at: Tue Mar 18 15:26:05 2025
+# Process ID: 9532
 # Current directory: C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.runs/impl_1
 # Command line: vivado.exe -log TOP_UART.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source TOP_UART.tcl -notrace
 # Log file: C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.runs/impl_1/TOP_UART.vdi
@@ -14,43 +14,19 @@ Command: link_design -top TOP_UART -part xc7a35tcpg236-1
 Design is defaulting to srcset: sources_1
 Design is defaulting to constrset: constrs_1
 INFO: [Device 21-403] Loading part xc7a35tcpg236-1
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1104.344 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1106.316 ; gain = 0.000
 INFO: [Project 1-479] Netlist was created with Vivado 2020.2
 INFO: [Project 1-570] Preparing netlist for logic optimization
 Parsing XDC File [D:/XDC/Basys-3-Master.xdc]
-WARNING: [Vivado 12-584] No ports matched 'tx_done'. [D:/XDC/Basys-3-Master.xdc:31]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/XDC/Basys-3-Master.xdc:31]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'debug_active'. [D:/XDC/Basys-3-Master.xdc:32]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/XDC/Basys-3-Master.xdc:32]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'debug_done'. [D:/XDC/Basys-3-Master.xdc:33]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/XDC/Basys-3-Master.xdc:33]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'debug_bit_position[0]'. [D:/XDC/Basys-3-Master.xdc:34]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/XDC/Basys-3-Master.xdc:34]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'debug_bit_position[1]'. [D:/XDC/Basys-3-Master.xdc:35]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/XDC/Basys-3-Master.xdc:35]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'debug_bit_position[2]'. [D:/XDC/Basys-3-Master.xdc:36]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/XDC/Basys-3-Master.xdc:36]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'debug_bit_position[3]'. [D:/XDC/Basys-3-Master.xdc:37]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/XDC/Basys-3-Master.xdc:37]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'btn_start'. [D:/XDC/Basys-3-Master.xdc:68]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/XDC/Basys-3-Master.xdc:68]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 Finished Parsing XDC File [D:/XDC/Basys-3-Master.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1104.344 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1106.316 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-5 Infos, 8 Warnings, 8 Critical Warnings and 0 Errors encountered.
+5 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 link_design completed successfully
-link_design: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1104.344 ; gain = 0.000
+link_design: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 1106.316 ; gain = 0.000
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
@@ -63,10 +39,10 @@ INFO: [Project 1-461] DRC finished with 1 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 ERROR: [Vivado_Tcl 4-78] Error(s) found during DRC. Opt_design not run.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.646 . Memory (MB): peak = 1104.344 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.681 . Memory (MB): peak = 1106.316 ; gain = 0.000
 INFO: [Common 17-83] Releasing license: Implementation
-10 Infos, 8 Warnings, 8 Critical Warnings and 2 Errors encountered.
+10 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
 opt_design failed
 ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.
 
-INFO: [Common 17-206] Exiting Vivado at Tue Mar 18 15:22:13 2025...
+INFO: [Common 17-206] Exiting Vivado at Tue Mar 18 15:26:14 2025...
