@@ -1,18 +1,8 @@
 Vivado Simulator 2020.2
 Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 901e324945c7473c9926dedb3bf23346 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_tx_behav xil_defaultlib.tb_uart_tx xil_defaultlib.glbl -log elaborate.log 
+Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 901e324945c7473c9926dedb3bf23346 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_uart_behav xil_defaultlib.tb_uart xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-Completed static elaboration
-Starting simulation data flow analysis
-Completed simulation data flow analysis
-Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.btn_debounce
-Compiling module xil_defaultlib.uart_tx
-Compiling module xil_defaultlib.baud_tick_gen_default
-Compiling module xil_defaultlib.uart
-Compiling module xil_defaultlib.send_tx_btn
-Compiling module xil_defaultlib.tb_uart_tx
-Compiling module xil_defaultlib.glbl
-Built simulation snapshot tb_uart_tx_behav
+ERROR: [VRFC 10-2063] Module <uart_rx> not found while processing module instance <DUT_rx> [C:/Users/kccistc/Desktop/FPGA_JIHO_OUT/250318_UARTT/project_1/project_1.srcs/sim_1/new/tb3.v:15]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.

@@ -1,9 +1,9 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
-"../../../../project_1.srcs/sources_1/new/button.v" \
+"../../../../project_1.srcs/sources_1/new/Counter.v" \
+"../../../../project_1.srcs/sources_1/new/UART.v" \
+"../../../../project_1.srcs/sources_1/new/btn_debounce.v" \
 "../../../../project_1.srcs/sources_1/new/send_tx_btn.v" \
-"../../../../project_1.srcs/sources_1/new/uart_1.v" \
-"../../../../project_1.srcs/sim_1/new/tb3.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"

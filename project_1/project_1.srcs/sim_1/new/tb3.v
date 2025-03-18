@@ -1,7 +1,7 @@
 module tb_uart ();
     reg clk, rst, btn_start;
     reg [7:0] data_in;
-    //    wire tx;
+    wire tx;
     reg rx;
     wire w_tick, w_rx_done;
     wire [7:0] rx_data;
@@ -21,14 +21,16 @@ module tb_uart ();
         .rx_data(rx_data)
     );
 
-    // 수정된 모듈 인스턴스화 - 올바른 포트 이름 사용
-    // send_tx_btn dut (
-    //     .clk(clk),                     // 클록 연결
-    //     .rst(rst),                     // 리셋 연결
-    //     .btn_start(tx_start_trig),     // 송신 시작 트리거 연결
-    //     .tx(tx_out),                   // 송신 출력 연결
-    //     .tx_done(tx_done)              // 송신 완료 신호 연결
-    // );
+    // UART 송신기 인스턴스화
+    uart_tx DUT_tx (
+        .clk(clk),
+        .rst(rst),
+        .tick(w_tick),
+        .start_trigger(btn_start),
+        .data_in(data_in),
+        .o_tx_done(tx_done),
+        .o_tx(tx)
+    );
 
     always #5 clk = ~clk;
 
@@ -36,50 +38,46 @@ module tb_uart ();
         clk = 0;
         rst = 1;
         rx  = 1;
+        #10 rst = 0;
+        // btn_start = 0;
+        // data_in = 8'h00;
+
+        #100;
+        rst = 0;  // 리셋 해제
 
         #100;
         rx = 0;  // start bit
 
-        #104160;
-        rx = 1;  // data 0 //9600 1bit
+        #10416;
+        rx = 1;  // data 0 - LSB 첫 비트
 
-        #104160;  // 반복
-        rx = 0;
+        #10416;
+        rx = 0;  // data 1
 
-        #104160;
-        rx = 0;
+        #10416;
+        rx = 0;  // data 2
 
-        #104160;
-        rx = 1;
+        #10416;
+        rx = 1;  // data 3
 
-        #104160;
-        rx = 1;
+        #10416;
+        rx = 1;  // data 4
+        #10416;
+        rx = 0;  // data 5
 
-        #104160;
-        rx = 0;
+        #10416;
+        rx = 0;  // data 6
+        #10416;
+        rx = 1;  // data 7 - MSB 마지막 비트
 
-        #104160;
-        rx = 0;
+        #10416;
+        rx = 1;  // stop bit
 
-        #104160;
-        /*
-        btn_start = 0;
-        data_in = "0";
-        #10;
-        rst = 0;
-        #10;
-        btn_start = 1;
-        #2_000_000;
-        //@(tx_done);
-        //wait(tx_done == 0);   // 전송 안될 때기
-        btn_start = 0;
-        */
+        // 수신 완료 후 잠시 대기
+        #1000
+        $stop;
 
-        //  신호 모니터링
-        // always @(posedge clk) begin
-        //     if (!rst) begin
-        //         $display("Time=%0t, TX=%b, Done=%b", $time, tx_out, tx_done);
-        //     end
-        // end
+  
+      
     end
 endmodule
